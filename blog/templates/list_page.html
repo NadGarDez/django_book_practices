@@ -4,7 +4,6 @@
 {% block content %}
 
   <H1>List Page</H1>
-
   {% for item in object_list %}
     <H2><a href="{% url 'detail_page' item.pk %}">{{item.title}}</a></H2>
     
