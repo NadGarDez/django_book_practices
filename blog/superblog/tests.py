@@ -59,3 +59,37 @@ class BlogTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
         self.assertEqual(no_response.status_code, 404)
+        
+    def test_post_create_view(self):
+        response = self.client.post(reverse('new_post'),{
+            'title':'test title 2',
+            'body': 'test body 2'
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'test title 2')
+        self.assertContains(response, 'test body 2')
+
+    def test_update_view(self):
+        response = self.client.post(
+            reverse('update_post', args='1'),
+            {
+                'title': 'updated title'
+            }
+        )
+
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'updated title')
+
+    def test_delete_view(self):
+        response = self.client.post(
+            reverse('delete_post', args = '1')
+        )
+
+        self.assertEqual(response.status_code, 302)
+
+
+
+
+
