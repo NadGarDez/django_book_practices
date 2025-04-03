@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'superblog.apps.SuperblogConfig'
+    'superblog.apps.SuperblogConfig',
+    'accounts.apps.AccountsConfig'
 
 ]
 
@@ -74,6 +75,9 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 DATABASES = {
         'default': {
